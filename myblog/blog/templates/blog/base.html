@@ -13,11 +13,7 @@
       rel="stylesheet"
       href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"
     />
-    <link
-      href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext"
-      rel="stylesheet"
-      type="text/css"
-    />
+    <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="{% static 'blog.css' %}" />
   </head>
   <body>
@@ -26,19 +22,12 @@
     </div>
 
     <div class="content container">
-      <div class="row">
-        <div class="col-md-8">
-          {% for post in posts %}
-          <div class="post">
-            <div class="date">
-              <p>published: {{ post.published_date }}</p>
+        <div class="row">
+            <div class="col-md-8">
+            {% block content %}
+            {% endblock %}
             </div>
-            <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
-            <p>{{ post.text|linebreaksbr }}</p>
-          </div>
-          {% endfor %}
         </div>
-      </div>
     </div>
   </body>
 </html>
